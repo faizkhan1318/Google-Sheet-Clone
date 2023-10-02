@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheet Clone</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="tool">
+        <!-- File Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">File</button>
+            <div class="dropdown-content">
+                <a href="#">New</a>
+                <a href="#">Open</a>
+                <a href="#">Save</a>
+                <a href="#">Save As</a>
+            </div>
+        </div>
+
+        <!-- Home Dropdown -->
+        <div class="dropdown active">
+            <button class="dropbtn">Home</button>
+        </div>
+
+        <!-- Insert Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">Insert</button>
+            <div class="dropdown-content">
+                <a href="#">Insert Row</a>
+                <a href="#">Insert Column</a>
+                <a href="#">Insert Image</a>
+            </div>
+        </div>
+
+        <!-- Layout Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">Layout</button>
+            <div class="dropdown-content">
+                <a href="#">Format Cells</a>
+                <a href="#">Merge Cells</a>
+                <a href="#">Cell Borders</a>
+            </div>
+        </div>
+
+        <!-- Help Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">Help</button>
+            <div class="dropdown-content">
+                <a href="#">About</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <div id="options">
+        <div id="menus">
+            <div class="material-icons" id="copy">file_copy</div>
+            <div class="material-icons" id="cut">content_cut</div>
+            <div class="material-icons" id="paste">content_paste</div>
+            <select onchange="onChangeFontStyle(this)" id="font-family">
+                <option value="monospace">MonoSpace</option>
+                <option value="sans-serif">Sans-serif</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="cursive">Cursive</option>
+                <option value="Times New Roman" selected>Times New Roman</option>
+                <option value="Arial">Arial</option>
+                <option value="Caveat">Caveat</option>
+                <option value="Confortaa">Confortaa</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+            </select>
+            <select onchange="onChangeFontSize(this)" id="font-size">
+                <option value="14px">14</option>
+                <option value="16px">16</option>
+                <option value="18px">18</option>
+                <option value="20px">20</option>
+                <option value="22px">22</option>
+                <option value="24px">24</option>
+                <option value="26px">26</option>
+            </select>
+            <span class="material-icons" id="bold" onclick="onClickBold(this)">format_bold</span>
+            <span class="material-icons" id="italic" onclick="onClickItalic(this)">format_italic</span>
+            <span class="material-icons" id="underline" onclick="onClickUnderlined(this)">format_underlined</span>
+            <span class="start material-icons text-align active-option" data-value="start" onclick="onClickTextAlign(this)" >
+                format_align_left
+            </span>
+            <span class="center material-icons text-align" data-value="center" onclick="onClickTextAlign(this)">
+                format_align_center
+            </span>
+            <span class="end material-icons text-align"data-value="right" onclick="onClickTextAlign(this)">
+                format_align_right
+            </span>
+            <div class="text-color">
+                <label for="color" class="material-icons" style="cursor: pointer;">
+                    format_color_text
+                </label>
+                <input onchange="onChangeTextColor(this)" type="color" name="color" id="color">
+            </div>
+            <div class="bg-color">
+                <label for="bgcolor" class="material-icons" style="cursor: pointer;">
+                    format_color_fill
+                </label>
+                <input onchange="onChangeBackgroundColor(this)" type="color" name="bgcolor" id="bgcolor"
+                    class="BGcolor-prop">
+            </div>
+            <span class="material-icons download">
+                cloud_download
+            </span>
+            <span class="material-icons open">
+                cloud_upload
+            </span>
+        </div>
+        
+        <div id="bottom-bar">
+            <span id="active-cell">Null</span>
+            <img class="formula-icon" src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
+            <input type="text">
+        </div>
+
+    </div>
+    <main style="position: relative; overflow: scroll; width: 100vw; height: 78vh;">
+        <div id="header">
+            <!-- <b style="position: sticky; top: 0; left: 0; background-color: #fff;">S.No</b> -->
+        </div>
+        <section id="body"></section>
+    </main>
+    <div class="footer"></div>
+
+
+    <script src="./options.js"></script>
+    <script src="./script.js"></script>
+    
+</body>
+</html>
